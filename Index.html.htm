@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crocview — Website Builder</title>
+<meta name="description" content="Crocview builds modern, responsive and professional websites for businesses, creators and individuals.">
+<style>
+:root{--navy:#071d49;--teal:#09a88f;--teal2:#12c5aa;--ink:#12213b;--muted:#68758b;--light:#f5f9fc;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);border-bottom:1px solid #e9eef4}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:900;color:var(--navy)}
+.logo-mark{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--teal),var(--navy));display:grid;place-items:center;color:white;font-weight:900}
+.navlinks{display:flex;gap:28px;color:#4b5870;font-weight:600;font-size:14px}
+.navlinks a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:12px;font-weight:800;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn-primary{background:var(--teal);color:white;box-shadow:0 10px 25px rgba(9,168,143,.2)}
+.btn-primary:hover{transform:translateY(-2px);background:#078f7b}
+.btn-dark{background:var(--navy);color:white}
+.hero{padding:92px 0 80px;background:radial-gradient(circle at 80% 20%,#dffaf5 0,transparent 30%),linear-gradient(180deg,#fff,#f5fbfd)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.badge{display:inline-flex;padding:8px 13px;border-radius:999px;background:#e6faf6;color:#087d6c;font-weight:800;font-size:13px;margin-bottom:20px}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-3px;color:var(--navy)}
+h1 span{color:var(--teal)}
+.hero p{font-size:18px;color:var(--muted);max-width:620px;margin:24px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.mockup{background:linear-gradient(145deg,#082653,#0b796d);padding:20px;border-radius:28px;box-shadow:0 35px 80px rgba(7,29,73,.22);transform:rotate(1.2deg)}
+.browser{background:#fff;border-radius:18px;overflow:hidden}
+.browserbar{height:38px;background:#edf2f6;display:flex;align-items:center;gap:7px;padding:0 14px}
+.dot{width:9px;height:9px;border-radius:50%;background:#aeb9c7}
+.screen{padding:30px;min-height:360px;background:linear-gradient(135deg,#fff,#eefaf8)}
+.screen h3{font-size:32px;color:var(--navy);line-height:1.1;margin-bottom:14px}
+.screen .line{height:11px;background:#dce5ee;border-radius:10px;margin:10px 0;width:78%}
+.screen .line.short{width:52%}
+.screen .cardrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
+.screen .card{height:100px;border-radius:12px;background:#fff;border:1px solid #e4edf2}
+section{padding:88px 0}
+.section-head{text-align:center;max-width:700px;margin:0 auto 45px}
+.eyebrow{color:var(--teal);font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:12px}
+h2{font-size:40px;line-height:1.1;color:var(--navy);margin:9px 0 14px;letter-spacing:-1px}
+.section-head p{color:var(--muted)}
+.services{background:var(--light)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service{background:#fff;border:1px solid #e6edf2;border-radius:20px;padding:28px;transition:.25s}
+.service:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(7,29,73,.08)}
+.icon{width:48px;height:48px;border-radius:14px;background:#e8faf7;color:var(--teal);display:grid;place-items:center;font-size:22px;margin-bottom:18px}
+.service h3{margin-bottom:8px;color:var(--navy)}
+.service p{color:var(--muted);font-size:14px}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.project{border-radius:22px;overflow:hidden;background:#fff;border:1px solid #e5ebf0}
+.project-img{height:240px;background:linear-gradient(135deg,#092451,#0da88f);padding:28px;display:flex;align-items:end}
+.project-img.two{background:linear-gradient(135deg,#10233e,#5a7cff)}
+.project-img.three{background:linear-gradient(135deg,#0b6b63,#b4efe6)}
+.project-window{width:100%;height:155px;background:#fff;border-radius:12px;padding:18px;box-shadow:0 12px 30px rgba(0,0,0,.15)}
+.project-window .bar{height:10px;background:#dbe5ee;border-radius:8px;width:65%;margin-bottom:15px}
+.project-window .blocks{display:grid;grid-template-columns:2fr 1fr;gap:8px}
+.project-window i{display:block;height:70px;background:#edf5f7;border-radius:8px}
+.project-info{padding:22px}.project-info h3{color:var(--navy);margin-bottom:5px}.project-info p{color:var(--muted);font-size:14px}
+.about{background:#f8fbfd}.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:center}
+.checks{display:grid;gap:13px;margin-top:24px}
+.check{display:flex;gap:10px;align-items:center;font-weight:700}.check b{color:var(--teal)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.stat{background:white;border:1px solid #e5edf2;padding:28px;border-radius:18px}.stat strong{font-size:34px;color:var(--navy);display:block}.stat span{color:var(--muted);font-size:14px}
+
+/* Contact Page Section */
+.contact-section{background:var(--light);padding:88px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:start}
+.contact-card{background:#fff;padding:40px;border-radius:24px;border:1px solid #e6edf2;box-shadow:0 15px 35px rgba(7,29,73,.04)}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.form-control{width:100%;padding:14px 16px;border-radius:12px;border:1px solid #dce5ee;outline:none;font-family:inherit;font-size:14px;transition:.2s}
+.form-control:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(9,168,143,.1)}
+textarea.form-control{resize:vertical;min-height:120px}
+
+.cta{padding:70px 0}.cta-box{background:linear-gradient(120deg,var(--navy),#08396c);color:white;border-radius:28px;padding:55px;display:flex;align-items:center;justify-content:space-between;gap:30px}.cta-box h2{color:white}.cta-box p{color:#c8d6e8;max-width:620px}
+footer{background:#061735;color:#aabbd0;padding:30px 0}.footer{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer strong{color:white}
+@media(max-width:800px){.navlinks{display:none}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.grid3,.projects{grid-template-columns:1fr}.hero{padding-top:60px}.cta-box{flex-direction:column;align-items:flex-start;padding:35px}.screen{min-height:300px}}
+</style>
+</head>
+<body>
+<nav>
+<div class="container nav">
+<a class="logo" href="#"><span class="logo-mark">C</span>crocview</a>
+<div class="navlinks"><a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#contact-page">Contact</a></div>
+<a class="btn btn-primary" href="#contact-page">Start a Project</a>
+</div>
+</nav>
+
+<header class="hero">
+<div class="container hero-grid">
+<div>
+<div class="badge">WEBSITE DESIGN & DEVELOPMENT</div>
+<h1>We build <span>websites</span> that build your business.</h1>
+<p>Crocview creates modern, responsive and professional websites for businesses, creators and individuals. Clean design, smooth performance and a strong online presence.</p>
+<div class="actions"><a class="btn btn-primary" href="#contact-page">Let's Build Your Website</a><a class="btn btn-dark" href="#work">View My Work</a></div>
+</div>
+<div class="mockup"><div class="browser"><div class="browserbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="screen"><h3>Your brand.<br>Online & ready.</h3><div class="line"></div><div class="line short"></div><div class="cardrow"><i class="card"></i><i class="card"></i><i class="card"></i></div></div></div></div>
+</div>
+</header>
+
+<section id="services" class="services">
+<div class="container">
+<div class="section-head"><div class="eyebrow">What I do</div><h2>Everything you need to look professional online.</h2><p>From a simple landing page to a complete business website, I create digital experiences built around your goals.</p></div>
+<div class="grid3">
+<div class="service"><div class="icon">✦</div><h3>Business Websites</h3><p>Professional websites that establish trust and help customers understand your business.</p></div>
+<div class="service"><div class="icon">▣</div><h3>Landing Pages</h3><p>Focused, high-converting pages designed for products, services, campaigns and leads.</p></div>
+<div class="service"><div class="icon">◎</div><h3>Responsive Design</h3><p>Websites that look great and work smoothly on phones, tablets and desktop screens.</p></div>
+<div class="service"><div class="icon">◈</div><h3>E-Commerce</h3><p>Clean online stores with product-focused layouts and an easy customer journey.</p></div>
+<div class="service"><div class="icon">⌁</div><h3>Portfolio Websites</h3><p>Showcase your work, skills and personal brand with a memorable online portfolio.</p></div>
+<div class="service"><div class="icon">⚙</div><h3>Maintenance</h3><p>Updates, improvements and content changes to keep your website fresh and useful.</p></div>
+</div>
+</div>
+</section>
+
+<section id="work">
+<div class="container">
+<div class="section-head"><div class="eyebrow">Selected work</div><h2>Websites designed to make an impression.</h2><p>Replace these demo projects with your real client work, screenshots and links.</p></div>
+<div class="projects">
+<div class="project"><div class="project-img"><div class="project-window"><div class="bar"></div><div class="blocks"><i></i><i></i></div></div></div><div class="project-info"><h3>Business Website</h3><p>Modern corporate-style website with clear services and conversion-focused sections.</p></div></div>
+<div class="project"><div class="project-img two"><div class="project-window"><div class="bar"></div><div class="blocks"><i></i><i></i></div></div></div><div class="project-info"><h3>Creative Portfolio</h3><p>Bold portfolio experience for a creator, freelancer or personal brand.</p></div></div>
+<div class="project"><div class="project-img three"><div class="project-window"><div class="bar"></div><div class="blocks"><i></i><i></i></div></div></div><div class="project-info"><h3>Online Store</h3><p>Product-focused storefront concept designed for a smooth shopping experience.</p></div></div>
+<div class="project"><div class="project-img"><div class="project-window"><div class="bar"></div><div class="blocks"><i></i><i></i></div></div></div><div class="project-info"><h3>Landing Page</h3><p>High-impact landing page concept for a digital service or marketing campaign.</p></div></div>
+</div>
+</div>
+</section>
+
+<section id="about" class="about">
+<div class="container about-grid">
+<div><div class="eyebrow">Why Crocview</div><h2>Simple design. Strong results.</h2><p style="color:var(--muted)">I combine clean visual design with practical website structure to help your business look credible and ready for customers.</p>
+<div class="checks"><div class="check"><b>✓</b> Mobile-first responsive design</div><div class="check"><b>✓</b> Clean and modern UI</div><div class="check"><b>✓</b> Fast and user-friendly experience</div><div class="check"><b>✓</b> Custom design for your brand</div></div></div>
+<div class="stats"><div class="stat"><strong>100%</strong><span>Custom-focused design</span></div><div class="stat"><strong>24/7</strong><span>Website access for your customers</span></div><div class="stat"><strong>4+</strong><span>Website categories</span></div><div class="stat"><strong>1</strong><span>Goal: grow your online presence</span></div></div>
+</div>
+</section>
+
+<section id="contact-page" class="contact-section">
+<div class="container">
+<div class="section-head"><div class="eyebrow">Get in touch</div><h2>Let's start your project</h2><p>Send a message and let's discuss how we can build your online presence.</p></div>
+<div class="contact-grid">
+<div>
+<h3>Ready to build?</h3>
+<p style="color:var(--muted); margin: 10px 0 20px;">Fill out the form or reach out directly via email to discuss your requirements, custom functionality, or timeline.</p>
+<div class="checks">
+<div class="check"><b>✉</b> hello@crocview.com</div>
+<div class="check"><b>⚡</b> Fast response within 24 hours</div>
+</div>
+</div>
+<div class="contact-card">
+<form id="contactForm" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+<div class="form-group">
+<label for="name">Your Name</label>
+<input type="text" id="name" class="form-control" placeholder="John Doe" required>
+</div>
+<div class="form-group">
+<label for="email">Email Address</label>
+<input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+</div>
+<div class="form-group">
+<label for="service">Service Needed</label>
+<select id="service" class="form-control">
+<option>Business Website</option>
+<option>Landing Page</option>
+<option>E-Commerce</option>
+<option>Portfolio Website</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Project Details</label>
+<textarea id="message" class="form-control" placeholder="Tell us about your goals..." required></textarea>
+</div>
+<button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" class="cta">
+<div class="container"><div class="cta-box"><div><div class="eyebrow" style="color:#57e2cd">Let's work together</div><h2>Have an idea for a website?</h2><p>Tell me what you need and let's turn your idea into a professional website.</p></div><a class="btn btn-primary" href="#contact-page">Contact Me</a></div></div>
+</section>
+
+<footer><div class="container footer"><div><strong>crocview</strong> — Website Builder</div><div>© 2026 Crocview. All rights reserved.</div></div></footer>
+</body>
+</html>
